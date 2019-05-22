@@ -14,7 +14,9 @@
            http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<context:component-scan base-package="com"></context:component-scan>
 	<context:property-placeholder
-		location="connOracle.properties" system-properties-mode="OVERRIDE" />
+		location="classpath:connOracle.properties"
+		system-properties-mode="OVERRIDE" />
+	<!-- 配置连接池 -->
 	<bean id="dataSource"
 		class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="jdbcUrl" value="${url}"></property>
@@ -22,17 +24,24 @@
 		<property name="user" value="${username}"></property>
 		<property name="password" value="${password}"></property>
 	</bean>
+	<!-- 配置集成包中的类 -->
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean"
 		name="sqlSessionFactoryName">
 		<property name="dataSource" ref="dataSource"></property>
-		<property name="configLocation" value="sqlMapConfig.xml"></property>
+		<property name="configLocation"
+			value="classpath:sqlMapConfig.xml"></property>
 	</bean>
 	<bean id="transManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"></property>
 	</bean>
+	<bean id="mapperConfig"
+		class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.mapper"></property>
+		<property name="sqlSessionFactoryBeanName"
+			value="sqlSessionFactoryName"></property>
+	</bean>
 	<tx:annotation-driven
 		transaction-manager="transManager" />
-	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 </beans>
