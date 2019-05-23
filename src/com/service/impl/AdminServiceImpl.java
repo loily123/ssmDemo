@@ -39,7 +39,7 @@ public class AdminServiceImpl implements AdminService {
 	@Transactional
 	public void updatePassword(String userName, String password) {
 		// TODO Auto-generated method stub
-		Map<String, String> map = new HashMap();
+		Map<String, String> map = new HashMap<String, String>();
 		map.put("userName", userName);
 		map.put("password", password);
 		adminMapper.updatePassword(map);

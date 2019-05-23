@@ -1,6 +1,10 @@
 package com.exception;
 
 public class MyWebException extends Exception {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String errorCode;
 	private String msg;
 
