@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>重设密码</title>
-<script type="text/javascript" src="/webDemo/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/ssmDemo/jquery/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$("#submit").click(
@@ -35,7 +35,7 @@
 </script>
 </head>
 <body>
-	<form action="/webDemo/resetPassword.do" method="post">
+	<form action="/ssmDemo/resetPassword.do" method="post">
 		原密码： <input type="text" name="oldPassword" id="oldPwd"></br> 新密码： <input
 			type="password" name="newPassword" id="newPwd"></br> 确认密码: <input
 			type="password" name="confirmPassword" id="confirmPwd"></br>

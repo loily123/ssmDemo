@@ -13,9 +13,6 @@
 		var msg = "${errorMsg}";
 		switch (errorCode) {
 		case "001":
-			alert(errorCode + "\n" + msg);
-			location.href = "/ssmDemo/jsp/adminLogin.jsp";
-			break;
 		case "002":
 			alert(errorCode + "\n" + msg);
 			location.href = "/ssmDemo/jsp/adminLogin.jsp";
@@ -26,10 +23,10 @@
 			location.href = "/ssmDemo/jsp/resetPassword.jsp";
 			break;
 		default:
-			msg = "未知错误";
+			alert(errorCode + "\n" + msg);
+			location.href = "/ssmDemo/jsp/adminLogin.jsp";
 			break;
 		}
-
 	})
 </script>
 <body>

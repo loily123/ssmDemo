@@ -22,13 +22,20 @@ public class AdminController {
 	private AdminService adminService;
 
 	@RequestMapping("queryByUserName")
-	public String queryByUserName(String userName, String password, HttpSession session, HttpServletRequest request)
-			throws MyWebException {
+	public String queryByUserName(String userName, String password, HttpSession session) throws MyWebException {
 		log.debug("进入adminController");
 		log.debug("用户名为：" + userName + "，密码为：" + password);
 		Admin admin = adminService.queryByUserName(userName, password);
 		session.setAttribute("admin", admin);
-		return "redirect:jsp/adminMenu.jsp";
+		return "redirect:/jsp/adminMenu.jsp";
+	}
 
+	@RequestMapping("resetPassword")
+	public String resetPassword(String confirmPassword, HttpSession session) {
+		String userName = ((Admin) (session.getAttribute("admin"))).getUserName();
+		log.debug("session中用户名：" + userName);
+		adminService.updatePassword(userName, confirmPassword);
+		session.invalidate();
+		return "redirect:/jsp/adminLogin.jsp";
 	}
 }

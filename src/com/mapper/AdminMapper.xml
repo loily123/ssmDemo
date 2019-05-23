@@ -11,4 +11,8 @@
 		parameterType="string">
 		select * from admin where username = #{userName}
 	</select>
+	<update id="updatePassword" parameterType="map">
+		update admin set
+		password = #{password} where username = #{userName}
+	</update>
 </mapper>
