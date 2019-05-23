@@ -2,6 +2,7 @@ package com.service.impl;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +16,12 @@ import com.util.ErrorCode;
 public class AdminServiceImpl implements AdminService {
 	@Autowired
 	private AdminMapper adminMapper;
+	private Logger log = Logger.getLogger(AdminServiceImpl.class);
 
 	@Override
 	public Admin queryByUserName(String userName, String password) throws MyWebException {
 		// TODO Auto-generated method stub
+		log.debug("进入adminServiceImpl");
 		List<Admin> admins = adminMapper.queryByUserName(userName);
 		if (admins.size() == 0) {
 			throw new MyWebException("用户不存在", ErrorCode.USERNOTEXIST);

@@ -5,7 +5,7 @@
 <head>
 <meta charset="utf-8">
 <title>admin登录页面</title>
-<script type="text/javascript" src="/webDemo/jquery/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/ssmDemo/jquery/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$("#login").click(function() {
@@ -30,7 +30,7 @@
 			<tr style="height: 100px;"></tr>
 			<tr>
 				<td align="right" width="45%"><font size="10">用户名</font></td>
-				<td><input type="text" name="username"
+				<td><input type="text" name="userName"
 					style="height: 50px; margin-left: 50px; width: 240px;"
 					id="username"></td>
 			</tr>
